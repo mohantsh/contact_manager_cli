@@ -1,0 +1,7 @@
+M:\C#\ContactManager\contact_manager_cli\ContactManager\bin\Debug\ContactManager.exe.config
+M:\C#\ContactManager\contact_manager_cli\ContactManager\bin\Debug\ContactManager.exe
+M:\C#\ContactManager\contact_manager_cli\ContactManager\bin\Debug\ContactManager.pdb
+M:\C#\ContactManager\contact_manager_cli\ContactManager\obj\Debug\ContactManager.csproj.AssemblyReference.cache
+M:\C#\ContactManager\contact_manager_cli\ContactManager\obj\Debug\ContactManager.csproj.CoreCompileInputs.cache
+M:\C#\ContactManager\contact_manager_cli\ContactManager\obj\Debug\ContactManager.exe
+M:\C#\ContactManager\contact_manager_cli\ContactManager\obj\Debug\ContactManager.pdb
