@@ -13,7 +13,7 @@ namespace ContactManager
         {
             Console.Clear();
             PrintWelcome();
-            LoadAndDisplaySummary();
+            //LoadAndDisplaySummary();
 
             while (_running)
             {
