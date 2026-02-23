@@ -52,27 +52,40 @@ namespace ContactManager.Services
 
         public IEnumerable<Contact> FilterContacts(string field, string value)
         {
-            throw new NotImplementedException();
+            var v = value.ToLowerInvariant();
+            switch (field.ToLower())
+            {
+                case "name":
+                    return _cs.Filter(c => c.Name.ToLowerInvariant().Contains(v));
+                case "phone":
+                    return _cs.Filter(c => c.Phone.ToLowerInvariant().Contains(v));
+                case "email":
+                    return _cs.Filter(c => c.Email.ToLowerInvariant().Contains(v));
+                case "date":
+                    return _cs.Filter(c => c.CreatedAt.ToString("yyyy-MM-dd").Contains(v));
+                default:
+                    throw new ArgumentException($"Unknown filter field: {field}");
+            }
         }
 
         public IEnumerable<Contact> ListContacts()
         {
-            throw new NotImplementedException();
+           return _cs.GetAll();
         }
 
         public void SaveContacts()
         {
-            throw new NotImplementedException();
+           _jdm.Save(_cs.GetAllRaw());
         }
 
         public IEnumerable<Contact> SearchContacts(string query)
         {
-            throw new NotImplementedException();
+            return _cs.Search(query);
         }
 
         public Contact ViewContact(Guid id)
         {
-            throw new NotImplementedException();
+            return _cs.GetById(id);
         }
         private static void ValidateInfo(string name, string phone, string email)
         {
