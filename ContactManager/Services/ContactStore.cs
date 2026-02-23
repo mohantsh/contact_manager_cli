@@ -39,11 +39,18 @@ namespace ContactManager.Services
         }
         public IEnumerable<Contact> Filter(Func<Contact, bool> predicate)
         {
-            throw new NotImplementedException();
+            return contactsDict.Values.Where(predicate).OrderBy(c => c.Name);
         }
         public IEnumerable<Contact> Search(string query)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(query)) return GetAll();
+            var q = query.ToLowerInvariant();
+            return contactsDict.Values
+                .Where(c =>
+                    c.Name.ToLowerInvariant().Contains(q) ||
+                    c.Phone.ToLowerInvariant().Contains(q) ||
+                    c.Email.ToLowerInvariant().Contains(q))
+                .OrderBy(c => c.Name);
         }
         public void LoadFrom(IEnumerable<Contact> contacts)
         {
