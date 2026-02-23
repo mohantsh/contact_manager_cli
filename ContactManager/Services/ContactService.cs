@@ -95,7 +95,7 @@ namespace ContactManager.Services
                 throw new ArgumentException("Phone cannot be empty.");
             if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentException("Email cannot be empty.");
-            if (!email.Contains('@'))
+            if (!email.Contains("@"))
                 throw new ArgumentException("Email must contain '@'.");
         }   
     }

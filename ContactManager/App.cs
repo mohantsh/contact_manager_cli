@@ -198,7 +198,7 @@ namespace ContactManager
         {
             Console.WriteLine("VIEW CONTACT");
             var contacts = _service.ListContacts().ToList();
-            checkContactsCount(contacts);
+            if (!checkContactsCount(contacts)) return;
             PrintContactList(contacts);
             var contact = SelectContact(contacts);
             if (contact == null) { Console.Clear(); return; }
@@ -212,7 +212,7 @@ namespace ContactManager
 
             Console.WriteLine("DELETE CONTACT");
             var contacts = _service.ListContacts().ToList();
-            checkContactsCount(contacts);
+            if (!checkContactsCount(contacts)) return;
             PrintContactList(contacts);
             var contact = SelectContact(contacts);
             if (contact == null) { Console.Clear(); return; }
@@ -239,7 +239,7 @@ namespace ContactManager
         {
             Console.WriteLine("EDIT CONTACT");
             var contacts = _service.ListContacts().ToList();
-            checkContactsCount(contacts);
+           if(!checkContactsCount(contacts)) return;
             PrintContactList(contacts);
             var contact = SelectContact(contacts);
             if (contact == null) { Console.Clear(); return; }
@@ -262,7 +262,7 @@ namespace ContactManager
             var name = Prompt("Name");
             var email = Prompt("Email");
             var phone = Prompt("Phone");
-            var contact = _service.AddContact(name,email,phone);
+            var contact = _service.AddContact(name,phone,email);
             Console.WriteLine($"Contact '{contact.Name}' added successfully.");
             PrintContactDetail(contact);
             PressAnyKey();
@@ -334,14 +334,17 @@ namespace ContactManager
             Console.WriteLine($"  {"#",-4} {"Name",-25}  {"Phone",-18}  {"Email",-30}  {"Created",-10}");
             Console.WriteLine($"  {new string('-', 4)} {new string('-', 25)}  {new string('-', 18)}  {new string('-', 30)}  {new string('-', 10)}");
         }
-        public static void checkContactsCount (List<Contact> contacts)
+        bool checkContactsCount (List<Contact> contacts)
         {
             if (!contacts.Any())
             {
                 Console.WriteLine("No contacts found.");
                 PressAnyKey();
                 Console.Clear();
-                return;
+                return false;
+            } else
+            {
+                return true;
             }
         }
     }
