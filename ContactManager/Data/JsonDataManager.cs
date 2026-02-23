@@ -17,8 +17,12 @@ namespace ContactManager.Data
             PropertyNameCaseInsensitive = true
         };
 
-        public JsonDataManager(string filePath = "contacts.json")
+        public JsonDataManager(string filePath = "Storage/contacts.json")
         {
+            var dir = Path.GetDirectoryName(filePath);
+            if (!string.IsNullOrEmpty(dir))
+                Directory.CreateDirectory(dir);
+
             _filePath = filePath;
         }
 

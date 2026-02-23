@@ -12,7 +12,7 @@ namespace ContactManager
     {
         static void Main(string[] args)
         {
-            var data = new JsonDataManager("contacts.json");
+            var data = new JsonDataManager("Storage/contacts.json");
             var cs = new ContactStore();
             var service = new ContactService(cs, data);
             var app = new App(service);
