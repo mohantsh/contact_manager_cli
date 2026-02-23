@@ -1,6 +1,6 @@
 # Contact Manager
 
-A command-line app to manage contacts. Built with C# and .NET 7.3.
+A command-line app to manage contacts. Built with C# and .NET 8.
 
 ---
 
