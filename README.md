@@ -6,7 +6,7 @@ A command-line app to manage contacts. Built with C# and .NET 7.3.
 
 ## Requirements
 
-- .NET 7 or above SDK — check with `dotnet --version`
+- .NET 8 SDK — check with `dotnet --version`
 
 ---
 
@@ -14,7 +14,7 @@ A command-line app to manage contacts. Built with C# and .NET 7.3.
 
 ```bash
 git clone https://github.com/your-username/ContactManager.git
-cd ContactManager/ContactManager
+cd ContactManager
 dotnet run
 ```
 
