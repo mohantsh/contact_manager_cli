@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ContactManager.Data;
+using ContactManager.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,10 @@ namespace ContactManager
     {
         static void Main(string[] args)
         {
-            App app = new App();
+            var data = new JsonDataManager("contacts.json");
+            var cs = new ContactStore();
+            var service = new ContactService(cs, data);
+            var app = new App(service);
             app.Run();
         }
     }
